@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Link Parameters</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    select {
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Edit Link Parameters</h2>
+
+  <label for="emailTypeSelect">Email Type:</label>
+  <select id="emailTypeSelect">
+    <option value="hotmail">Hotmail</option>
+    <option value="outlook">Outlook</option>
+  </select>
+
+  <label for="numInput">Num:</label>
+  <input type="text" id="numInput" placeholder="Enter num">
+
+  <button onclick="useLink()">Use Link</button>
+
+  <script>
+    function useLink() {
+      var baseUrl = "http://bee-mails.com/getEmail?";
+      var clientKey = "cc33961cae2e4324b70d8f711063f841858439";
+      var emailType = document.getElementById('emailTypeSelect').value || "hotmail";
+      var num = document.getElementById('numInput').value || 1;
+
+      var link = `${baseUrl}num=${num}&key=${clientKey}&emailType=${emailType}&format=txt`;
+
+      window.open(link, '_blank');
+    }
+  </script>
+
+</body>
+</html>
